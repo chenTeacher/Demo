@@ -3,6 +3,7 @@ package com.example.demo.main.home;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -75,6 +76,7 @@ public class MainActivity extends FragmentActivity  implements TabHost.OnTabChan
 
     @Override
     public void onTabChanged(String tabId) {
+        Log.i("MainActivity","tabId :"+tabId);
     }
 
 }
