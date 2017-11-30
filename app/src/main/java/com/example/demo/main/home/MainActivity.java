@@ -78,7 +78,7 @@ public class MainActivity extends FragmentActivity  implements TabHost.OnTabChan
     public void onTabChanged(String tabId) {
         Log.i("MainActivity","onTabChanged:tabId"+tabId);
         Log.i("MainActivity","onTabChanged:tabId"+tabId);
-        Log.i("MainActivity","onTabChanged:tabId"+tabId);
+
 //        cs
     }
 
