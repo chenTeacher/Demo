@@ -35,7 +35,7 @@ public class MainFragment extends Fragment {
         return mCacheView;
     }
     private void initView(View mCacheView){
-        personListView  = (ListView) mCacheView.findViewById(R.id.person_list_view);
+        personListView  = (ListView) mCacheView.findViewById(R.id.main_patient_case_collection_list_view);
         List<Person> data = new ArrayList<Person>();
         data.add(new Person("A",1));
         data.add(new Person("B",2));

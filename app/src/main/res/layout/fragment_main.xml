@@ -96,18 +96,18 @@
                 android:background="@drawable/zximg" />
         </LinearLayout>
         <ListView
-            android:id="@+id/person_list_view"
+            android:id="@+id/main_patient_case_collection_list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-
         </ListView>
     </LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="3"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <RelativeLayout
@@ -115,7 +115,7 @@
             android:layout_height="120dp">
 
             <ImageView
-                android:id="@+id/main_content_person_image"
+                android:id="@+id/main_patient_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_alignParentStart="true"
@@ -127,10 +127,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/main_content_person_image">
+                android:layout_toRightOf="@+id/main_patient_image">
 
                 <TextView
-                    android:id="@+id/main_content_person_name"
+                    android:id="@+id/main_patient_name"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
 
@@ -144,11 +144,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/main_content_person_sex"
+                    android:id="@+id/main_patient_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/main_content_person_name"
+                    android:layout_toEndOf="@+id/main_patient_name"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -156,11 +156,11 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/main_content_person_province"
+                    android:id="@+id/main_patient_province"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/main_content_person_sex"
+                    android:layout_toEndOf="@+id/main_patient_sex"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -168,11 +168,11 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/main_content_person_city"
+                    android:id="@+id/main_patient_city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/main_content_person_province"
+                    android:layout_toEndOf="@+id/main_patient_province"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -183,8 +183,8 @@
                     android:id="@+id/text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/main_content_person_sex"
-                    android:layout_toEndOf="@+id/main_content_person_name"
+                    android:layout_below="@+id/main_patient_sex"
+                    android:layout_toEndOf="@+id/main_patient_name"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -197,10 +197,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
-                android:layout_toEndOf="@+id/main_content_person_image">
+                android:layout_toEndOf="@+id/main_patient_image">
 
                 <TextView
-                    android:id="@+id/text_view1"
+                    android:id="@+id/main_patient_jz_state"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
@@ -210,11 +210,11 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/text_view2"
+                    android:id="@+id/main_patient_record"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/text_view1"
+                    android:layout_below="@+id/main_patient_jz_state"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -222,11 +222,11 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/text_view3"
+                    android:id="@+id/main_patient_first"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/text_view1"
+                    android:layout_toEndOf="@+id/main_patient_jz_state"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -234,12 +234,12 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/text_view4"
+                    android:id="@+id/main_patient_last"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/text_view2"
-                    android:layout_alignBottom="@+id/text_view2"
-                    android:layout_toEndOf="@+id/text_view2"
+                    android:layout_alignBaseline="@+id/main_patient_record"
+                    android:layout_alignBottom="@+id/main_patient_record"
+                    android:layout_toEndOf="@+id/main_patient_record"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
@@ -264,7 +264,11 @@
                 android:background="@drawable/main_query_case" />
         </RelativeLayout>
 
-    </FrameLayout>
+        <ListView
+            android:id="@+id/main_patient_case_collection_info_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
 
 
 </LinearLayout>
