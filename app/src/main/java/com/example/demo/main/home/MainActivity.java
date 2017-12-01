@@ -20,13 +20,13 @@ public class MainActivity extends FragmentActivity  implements TabHost.OnTabChan
     private LayoutInflater layoutInflater;
 
     //定义数组来存放Fragment界面
-    private Class fragmentArray[] = {MainFragment.class,SettingFragment.class};
+    private Class fragmentArray[] = {MainFragment.class,SettingFragment.class,SettingFragment.class,SettingFragment.class};
 
     //定义数组来存放按钮图片
-    private int mImageViewArray[] = {R.drawable.tab_home_btn,R.drawable.tab_home_btn};
+    private int mImageViewArray[] = {R.drawable.tab_home_btn,R.drawable.tab_patient_btn,R.drawable.tab_clinic_btn,R.drawable.tab_message_btn};
 
     //Tab选项卡的文字
-    private String mTextviewArray[] = {"首页", "设置"};
+    private String mTextviewArray[] = {"首页", "患者","门诊","消息"};
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

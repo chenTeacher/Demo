@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#bfbfbf"
     android:orientation="vertical" >
     <android.support.v4.app.FragmentTabHost
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +19,8 @@
             android:orientation="horizontal">
             <com.example.demo.ui.VerticalTabwWigdet
                 android:id="@android:id/tabs"
-                    android:layout_width="72dp"
+                android:layout_marginTop="20dp"
+                    android:layout_width="98dp"
                     android:layout_height="wrap_content"
                 >
             </com.example.demo.ui.VerticalTabwWigdet>

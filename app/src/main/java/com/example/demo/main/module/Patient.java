@@ -32,7 +32,7 @@ public class Patient {
     /**病人就诊意向*/
     private String patient_intention;
     /**病人就诊病例集合*/
-    private List<Object> patient_case_collection;
+    private List<Patient_Case_Collection> patient_case_collection;
     /**省*/
     private String province;
     /**市*/
@@ -48,7 +48,7 @@ public class Patient {
                    String patient_jz_state, String patient_record,
                    String patient_first_time, String patient_first_doctor,
                    String patient_last_time, String patient_last_doctor,
-                   String patient_intention, List<Object> patient_case_collection,
+                   String patient_intention, List<Patient_Case_Collection> patient_case_collection,
                    String province, String city, String county) {
         this.patient_name = patient_name;
         this.patient_age = patient_age;
@@ -142,10 +142,10 @@ public class Patient {
     public void setPatient_intention(String patient_intention) {
         this.patient_intention = patient_intention;
     }
-    public List<Object> getPatient_case_collection() {
+    public List<Patient_Case_Collection> getPatient_case_collection() {
         return patient_case_collection;
     }
-    public void setPatient_case_collection( List<Object> patient_case_collection) {
+    public void setPatient_case_collection( List<Patient_Case_Collection> patient_case_collection) {
         this.patient_case_collection = patient_case_collection;
     }
     public String getProvince() {
