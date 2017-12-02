@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="horizontal"
     tools:context="com.example.demo.main.home.MainFragment">
 
@@ -180,7 +181,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/text_view"
+                    android:id="@+id/main_patient_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/main_patient_sex"

@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/person_name"
+        android:id="@+id/patient_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -30,12 +30,12 @@
         app:srcCompat="@drawable/main_person_image" />
 
     <TextView
-        android:id="@+id/person_case"
+        android:id="@+id/patient_intention"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
-        android:layout_toEndOf="@+id/person_name"
+        android:layout_toEndOf="@+id/patient_name"
         android:ellipsize="end"
         android:paddingBottom="15dp"
         android:paddingLeft="10dp"

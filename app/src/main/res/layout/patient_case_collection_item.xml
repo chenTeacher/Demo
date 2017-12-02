@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/patient_case_collection_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/file" />
+
+    <TextView
+        android:id="@+id/patient_case_collection_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/patient_case_collection_content"
+        android:layout_marginStart="28dp"
+        android:layout_toEndOf="@+id/patient_case_collection_number"
+        android:text="暂无数据" />
+
+    <TextView
+        android:id="@+id/patient_case_collection_content"
+        android:layout_margin="20dp"
+        android:autoLink="all"
+        android:textColorLink="#8e8e8e"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/patient_case_collection_button"
+        android:layout_marginTop="22dp"
+        android:text="暂无数据"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:id="@+id/patient_case_collection_number"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/patient_case_collection_button"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/text_view_round"
+        android:layout_marginLeft="20dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/patient_case_collection_doctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/patient_case_collection_number"
+        android:layout_toEndOf="@+id/patient_case_collection_time"
+        android:text="暂无数据" />
+</RelativeLayout>
