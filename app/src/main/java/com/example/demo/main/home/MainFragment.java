@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.example.demo.R;
 import com.example.demo.main.module.Patient;
 import com.example.demo.main.module.Patient_Case_Collection;
-import com.example.demo.main.module.Person;
 
 import java.util.ArrayList;
 import java.util.List;
