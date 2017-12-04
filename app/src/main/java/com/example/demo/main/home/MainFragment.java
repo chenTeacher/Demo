@@ -1,5 +1,6 @@
 package com.example.demo.main.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -7,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,10 +20,11 @@ import com.example.demo.main.module.Patient_Case_Collection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener{
     private View mCacheView;
-    private ListView patientListView;
-    private ListView patient_Case_Collection_ListView;
+    private ListView patientListView;//患者列表
+    private ListView patient_Case_Collection_ListView;//患者就诊信息列表
+    private ImageView patient_add;//添加患者
     /**患者姓名*/
     private TextView patient_name;
     /**患者性别*/
@@ -60,6 +64,7 @@ public class MainFragment extends Fragment {
         return mCacheView;
     }
     private void initView(View mCacheView){
+        patient_add = (ImageView) mCacheView.findViewById(R.id.main_patient_add);
         patientListView  = (ListView) mCacheView.findViewById(R.id.main_patient_case_collection_list_view);
         patient_Case_Collection_ListView = (ListView)mCacheView.findViewById(R.id.main_patient_case_collection_info_list_view);
         patient_name = (TextView) mCacheView.findViewById(R.id.main_patient_name);
@@ -71,6 +76,8 @@ public class MainFragment extends Fragment {
         patient_last = (TextView) mCacheView.findViewById(R.id.main_patient_last);
         province = (TextView) mCacheView.findViewById(R.id.main_patient_province);
         city = (TextView) mCacheView.findViewById(R.id.main_patient_city);
+        patient_add.setOnClickListener(this);
+
     }
     private void setAdapter(){
         List<Patient> data = new ArrayList<Patient>();
@@ -89,6 +96,19 @@ public class MainFragment extends Fragment {
         patientListView.setAdapter(patientAdapter);
         patient_Case_Collection_ListView.setAdapter(patient_case_collection_adapter);
         patientListView.setOnItemClickListener(new PatientAdapterOnItemClickListener());
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case  R.id.main_patient_add:
+                intentAddPatient();
+                break;
+        }
+    }
+    private void intentAddPatient(){
+        Intent intent  = new Intent(getActivity(),AddPatientActivity.class);
+        startActivity(intent);
     }
     class  PatientAdapterOnItemClickListener implements AdapterView.OnItemClickListener{
 

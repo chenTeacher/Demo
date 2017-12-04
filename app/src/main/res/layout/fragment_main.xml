@@ -35,7 +35,7 @@
                 >
 
                 <ImageView
-                    android:id="@+id/main_group"
+                    android:id="@+id/main_patient_add"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
@@ -60,7 +60,6 @@
                 >
 
                 <ImageView
-                    android:id="@+id/main"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
@@ -140,8 +139,8 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="王小明"
-                    android:textSize="32sp"
+                    android:text="@string/暂无数据"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
