@@ -95,6 +95,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         patient_case_collection_adapter = new Patient_Case_Collection_Adapter(getActivity(),data4);
         patientListView.setAdapter(patientAdapter);
         patient_Case_Collection_ListView.setAdapter(patient_case_collection_adapter);
+//        点击事件
         patientListView.setOnItemClickListener(new PatientAdapterOnItemClickListener());
     }
 

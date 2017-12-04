@@ -1,20 +1,21 @@
 package com.example.demo.main.home;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.View;
 
 import com.example.demo.R;
 
 /**
- * 添加患者信息Activity
+ * Created by ChenTeacher on 2017/12/4.
  */
-public class AddPatientActivity extends Activity implements View.OnClickListener{
+
+public class SeePatientCaseActivity extends Activity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_patient);
+        setContentView(R.layout.activity_see_case_patient);
     }
     private void closeActivty(){
         finish();

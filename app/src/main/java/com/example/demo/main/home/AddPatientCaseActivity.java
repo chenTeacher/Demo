@@ -1,7 +1,7 @@
 package com.example.demo.main.home;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.View;
 
 import com.example.demo.R;
@@ -9,13 +9,14 @@ import com.example.demo.R;
 /**
  * 添加患者信息Activity
  */
-public class AddPatientActivity extends Activity implements View.OnClickListener{
+public class AddPatientCaseActivity extends Activity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_patient);
+        setContentView(R.layout.activity_add_case_patient);
     }
+
     private void closeActivty(){
         finish();
     }
