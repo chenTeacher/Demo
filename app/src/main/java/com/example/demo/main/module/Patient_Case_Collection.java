@@ -1,10 +1,12 @@
 package com.example.demo.main.module;
 
+import java.io.Serializable;
+
 /**
  * Created by ChenTeacher on 2017/12/1.
  */
 
-public class Patient_Case_Collection {
+public class Patient_Case_Collection implements Serializable {
     private  String number;
     private  String time;
     private  String doctor;

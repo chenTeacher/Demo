@@ -28,8 +28,11 @@
             android:name=".main.home.AddPatientActivity"
             android:label="@string/title_activity_add_patient" />
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:name=".main.home.AddPatientCaseActivity" />
+        <activity
+            android:name=".main.home.SeePatientActivity" />
+        <activity
+            android:name=".main.home.SeePatientCaseActivity" />
     </application>
 
 </manifest>

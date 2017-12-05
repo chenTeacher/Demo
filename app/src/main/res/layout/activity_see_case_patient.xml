@@ -15,6 +15,7 @@
         android:padding="10dp">
 
         <ImageButton
+            android:id="@+id/close_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/close"

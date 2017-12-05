@@ -25,6 +25,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     private ListView patientListView;//患者列表
     private ListView patient_Case_Collection_ListView;//患者就诊信息列表
     private ImageView patient_add;//添加患者
+    private ImageView intent_add_case;//添加病例
+    private ImageView intent_see_patient;//查看编辑患者信息
     /**患者姓名*/
     private TextView patient_name;
     /**患者性别*/
@@ -65,6 +67,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     }
     private void initView(View mCacheView){
         patient_add = (ImageView) mCacheView.findViewById(R.id.main_patient_add);
+        intent_add_case = (ImageView) mCacheView.findViewById(R.id.intent_add_case);
+        intent_see_patient = (ImageView) mCacheView.findViewById(R.id.intent_see_patient);
         patientListView  = (ListView) mCacheView.findViewById(R.id.main_patient_case_collection_list_view);
         patient_Case_Collection_ListView = (ListView)mCacheView.findViewById(R.id.main_patient_case_collection_info_list_view);
         patient_name = (TextView) mCacheView.findViewById(R.id.main_patient_name);
@@ -77,6 +81,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         province = (TextView) mCacheView.findViewById(R.id.main_patient_province);
         city = (TextView) mCacheView.findViewById(R.id.main_patient_city);
         patient_add.setOnClickListener(this);
+        intent_add_case.setOnClickListener(this);
+        intent_see_patient.setOnClickListener(this);
 
     }
     private void setAdapter(){
@@ -105,7 +111,21 @@ public class MainFragment extends Fragment implements View.OnClickListener{
             case  R.id.main_patient_add:
                 intentAddPatient();
                 break;
+            case R.id.intent_add_case:
+                intentAddPatientCaseActivity();
+                break;
+            case R.id.intent_see_patient:
+                intentSeePatientActivity();
+                break;
         }
+    }
+    private void intentSeePatientActivity(){
+        Intent intent  = new Intent(getActivity(),SeePatientActivity.class);
+        startActivity(intent);
+    }
+    private void intentAddPatientCaseActivity(){
+        Intent intent  = new Intent(getActivity(),AddPatientCaseActivity.class);
+        startActivity(intent);
     }
     private void intentAddPatient(){
         Intent intent  = new Intent(getActivity(),AddPatientActivity.class);

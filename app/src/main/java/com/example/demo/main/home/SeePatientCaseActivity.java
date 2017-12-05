@@ -3,6 +3,7 @@ package com.example.demo.main.home;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.demo.R;
 
@@ -11,11 +12,13 @@ import com.example.demo.R;
  */
 
 public class SeePatientCaseActivity extends Activity implements View.OnClickListener{
-
+    private ImageButton close_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_case_patient);
+        close_button = (ImageButton) findViewById(R.id.close_btn);
+        close_button.setOnClickListener(this);
     }
     private void closeActivty(){
         finish();
@@ -24,7 +27,8 @@ public class SeePatientCaseActivity extends Activity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case 0:
+            case R.id.close_btn:
+                closeActivty();
                 break;
         }
     }

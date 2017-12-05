@@ -1,6 +1,9 @@
 package com.example.demo.main.home;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +59,7 @@ public class Patient_Case_Collection_Adapter extends BaseAdapter implements Adap
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Patient_Case_Collection patient_case_collection = (Patient_Case_Collection) getItem(position);
+        final Patient_Case_Collection patient_case_collection = (Patient_Case_Collection) getItem(position);
         LayoutInflater inflater = LayoutInflater.from(mContext);
         Patient_Case_Collection_Adapter.ViewHolder holder = null;
         if (convertView == null) {
@@ -79,12 +82,16 @@ public class Patient_Case_Collection_Adapter extends BaseAdapter implements Adap
         holder.patient_case_collection_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                intentSeePatientCaseActivity(patient_case_collection);
             }
         });
         return convertView;
     }
-
+    private  void intentSeePatientCaseActivity(Patient_Case_Collection patient_case_collection){
+        Intent intent = new Intent(mContext,SeePatientCaseActivity.class);
+        intent.putExtra("patient_case_collection",patient_case_collection);
+        mContext.startActivity(intent);
+    }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             /*通过点击事件来查询详情*/

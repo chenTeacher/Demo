@@ -15,6 +15,7 @@
         android:padding="10dp">
 
         <ImageButton
+            android:id="@+id/close_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/close"
@@ -23,7 +24,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="添加患者"
+            android:text="添加诊疗记录"
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:textSize="30sp"
