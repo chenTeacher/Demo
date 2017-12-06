@@ -131,6 +131,27 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         Intent intent  = new Intent(getActivity(),AddPatientActivity.class);
         startActivity(intent);
     }
+    public void onAddressPicker(View view) {
+//        AddressPickTask task = new AddressPickTask(this);
+//        task.setHideProvince(false);
+//        task.setHideCounty(false);
+//        task.setCallback(new AddressPickTask.Callback() {
+//            @Override
+//            public void onAddressInitFailed() {
+//                showToast("数据初始化失败");
+//            }
+//
+//            @Override
+//            public void onAddressPicked(Province province, City city, County county) {
+//                if (county == null) {
+//                    showToast(province.getAreaName() + city.getAreaName());
+//                } else {
+//                    showToast(province.getAreaName() + city.getAreaName() + county.getAreaName());
+//                }
+//            }
+//        });
+//        task.execute("贵州", "毕节", "纳雍");
+    }
     class  PatientAdapterOnItemClickListener implements AdapterView.OnItemClickListener{
 
         @Override
