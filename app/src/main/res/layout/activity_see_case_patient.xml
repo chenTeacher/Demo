@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/add_patient_local"
             android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/button" />
+            android:layout_toEndOf="@+id/activity_add_patient_select_local" />
 
         <TextView
             android:id="@+id/textView7"
