@@ -70,7 +70,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/add_patient_phone_value"
+            android:id="@+id/add_case_patient_time"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/add_patient_phone"
@@ -115,12 +115,12 @@
             android:id="@+id/add_patient_local_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/activity_add_patient_select_local"
-            android:layout_below="@+id/activity_add_patient_select_local"
+            android:layout_alignStart="@+id/activity_see_patient_select_local"
+            android:layout_below="@+id/activity_see_patient_select_local"
             android:layout_marginTop="16dp" />
 
         <Button
-            android:id="@+id/activity_add_patient_select_local"
+            android:id="@+id/activity_see_patient_select_local"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/add_patient_local"
@@ -195,7 +195,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/add_patient_local"
             android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/activity_add_patient_select_local" />
+            android:layout_toEndOf="@+id/activity_see_patient_select_local" />
 
         <Button
             android:id="@+id/activity_add_patient_select_sex"
@@ -209,7 +209,7 @@
             android:id="@+id/activity_add_patient_select_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/add_patient_phone_value"
+            android:layout_alignBottom="@+id/add_case_patient_time"
             android:layout_toEndOf="@+id/textView5"
             android:text="请选择" />
         <!--<EditText

@@ -253,7 +253,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:background="@drawable/main_add_case" />
+                android:background="@drawable/main_query_case" />
             <!--查看编辑患者信息-->
             <ImageButton
                 android:id="@+id/intent_see_patient"
@@ -261,7 +261,7 @@
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_toStartOf="@+id/intent_add_case"
-                android:background="@drawable/main_query_case" />
+                android:background="@drawable/main_add_case" />
         </RelativeLayout>
 
         <ListView

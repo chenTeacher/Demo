@@ -39,7 +39,7 @@
 
         <TextView
             android:id="@+id/add_patient_name"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -61,7 +61,7 @@
 
         <TextView
             android:id="@+id/add_patient_phone"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/add_patient_name"
             android:layout_below="@+id/add_patient_name"
@@ -72,7 +72,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/add_patient_phone_value"
+            android:id="@+id/add_case_patient_time"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/add_patient_phone"
@@ -82,7 +82,7 @@
 
         <TextView
             android:id="@+id/add_patient_card"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/add_patient_phone"
             android:layout_below="@+id/add_patient_phone"
@@ -108,7 +108,7 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/imageView"
@@ -131,18 +131,17 @@
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:text="添加" />
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="72dp"
+            android:text="保存" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView7"
-            android:layout_alignBottom="@+id/textView7"
-            android:layout_marginStart="75dp"
-            android:layout_toEndOf="@+id/add_patient_phone_value"
+            android:layout_alignBottom="@+id/see_case_patient_state"
+            android:layout_toEndOf="@+id/see_case_patient_state"
             android:text="医生:"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -153,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/add_patient_local"
             android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/activity_add_patient_select_local" />
+            android:layout_toEndOf="@+id/activity_see_patient_select_local" />
 
         <TextView
             android:id="@+id/textView7"
@@ -166,5 +165,21 @@
             android:textAlignment="textEnd"
             android:textSize="24sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/see_case_patient_state"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView7"
+            android:layout_toEndOf="@+id/textView7"
+            android:text="请选择" />
+
+        <Button
+            android:id="@+id/see_case_patient_doctor"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView7"
+            android:layout_toEndOf="@+id/textView2"
+            android:text="请选择" />
     </RelativeLayout>
 </LinearLayout>

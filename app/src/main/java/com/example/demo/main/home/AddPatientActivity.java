@@ -41,7 +41,7 @@ public class AddPatientActivity extends Activity implements View.OnClickListener
         close_button = (ImageButton) findViewById(R.id.close_btn);
         select_age = (Button) findViewById(R.id.activity_add_patient_select_age);
         select_sex = (Button) findViewById(R.id.activity_add_patient_select_sex);
-        select_local = (Button) findViewById(R.id.activity_add_patient_select_local);
+        select_local = (Button) findViewById(R.id.activity_see_patient_select_local);
         patient_local = (TextView) findViewById(R.id.activity_add_patient_local);
         close_button.setOnClickListener(this);
         select_age.setOnClickListener(this);
@@ -68,7 +68,8 @@ public class AddPatientActivity extends Activity implements View.OnClickListener
             @Override
             public void onNumberPicked(int index, Number item) {
 //                showToast("index=" + index + ", item=" + item.intValue());
-                select_age.setText(item.intValue());
+                select_age.setText(Integer.toString( item.intValue()));
+
             }
         });
         picker.show();
@@ -83,7 +84,7 @@ public class AddPatientActivity extends Activity implements View.OnClickListener
         picker.setLineVisible(true);
         picker.setShadowVisible(true);
         picker.setTextSize(18);
-        picker.setSelectedIndex(1);
+        picker.setSelectedIndex(0);
         picker.setWheelModeEnable(true);
         //启用权重 setWeightWidth 才起作用
         picker.setLabel("");
@@ -94,14 +95,12 @@ public class AddPatientActivity extends Activity implements View.OnClickListener
         picker.setOnSingleWheelListener(new OnSingleWheelListener() {
             @Override
             public void onWheeled(int index, String item) {
-                Toast.makeText(getApplication(),"1index=" + index + ", item=" + item,Toast.LENGTH_LONG).show();
             }
         });
         picker.setOnItemPickListener(new OnItemPickListener<String>() {
             @Override
             public void onItemPicked(int index, String item) {
-                Toast.makeText(getApplication(),"2index=" + index + ", item=" + item,Toast.LENGTH_LONG).show();
-
+                select_sex.setText(item);
             }
         });
         picker.show();
@@ -123,15 +122,11 @@ public class AddPatientActivity extends Activity implements View.OnClickListener
                 public void onAddressPicked(Province province, City city, County county) {
                     String s ="";
                     if (county == null) {
-//                        Toast.makeText(getApplication(),province.getAreaName() + city.getAreaName(),Toast.LENGTH_LONG).show();
-                        s.concat(province.getAreaName());
-                        s.concat(city.getAreaName());
+                        s = province.getAreaName()+city.getAreaName();
                     } else {
-                        s.concat(province.getAreaName());
-                        s.concat(city.getAreaName());
-                        s.concat(county.getAreaName());
-//                        Toast.makeText(getApplication(),province.getAreaName() + city.getAreaName() + county.getAreaName(),Toast.LENGTH_LONG).show();
+                        s = province.getAreaName()+city.getAreaName()+county.getAreaName();
                     }
+                    Toast.makeText(getApplication(),s,Toast.LENGTH_LONG).show();
                     patient_local.setText(s);
                 }
             });
@@ -151,7 +146,7 @@ public class AddPatientActivity extends Activity implements View.OnClickListener
             case R.id.activity_add_patient_select_sex:
                 selectSex();
                 break;
-            case R.id.activity_add_patient_select_local:
+            case R.id.activity_see_patient_select_local:
                 selectLocal();
                 break;
         }
