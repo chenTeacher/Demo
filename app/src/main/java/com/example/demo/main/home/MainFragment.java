@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.DatePicker;
+
 
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -18,8 +19,11 @@ import com.example.demo.R;
 import com.example.demo.main.module.Patient;
 import com.example.demo.main.module.Patient_Case_Collection;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class MainFragment extends Fragment implements View.OnClickListener{
     private View mCacheView;
@@ -132,27 +136,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         Intent intent  = new Intent(getActivity(),AddPatientActivity.class);
         startActivity(intent);
     }
-    public void onAddressPicker(View view) {
-//        AddressPickTask task = new AddressPickTask(this);
-//        task.setHideProvince(false);
-//        task.setHideCounty(false);
-//        task.setCallback(new AddressPickTask.Callback() {
-//            @Override
-//            public void onAddressInitFailed() {
-//                showToast("数据初始化失败");
-//            }
-//
-//            @Override
-//            public void onAddressPicked(Province province, City city, County county) {
-//                if (county == null) {
-//                    showToast(province.getAreaName() + city.getAreaName());
-//                } else {
-//                    showToast(province.getAreaName() + city.getAreaName() + county.getAreaName());
-//                }
-//            }
-//        });
-//        task.execute("贵州", "毕节", "纳雍");
-    }
+
     class  PatientAdapterOnItemClickListener implements AdapterView.OnItemClickListener{
 
         @Override
@@ -170,7 +154,6 @@ public class MainFragment extends Fragment implements View.OnClickListener{
             data4.clear();
             data4.addAll(patient.getPatient_case_collection());
             patient_case_collection_adapter.notifyDataSetChanged();
-
         }
     }
 
