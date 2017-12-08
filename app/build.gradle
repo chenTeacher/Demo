@@ -35,4 +35,5 @@ dependencies {
     compile 'com.alibaba:fastjson:1.1.56.android'
     compile 'com.github.yuzhiqiang1993:zxing:2.0.0'
     implementation 'com.yanzhenjie:permission:1.1.0'
+    compile 'com.foamtrace:photopicker:1.0'
 }

@@ -7,4 +7,5 @@
     <color name="selector_tab_background_state_selected">#ffffff</color>
     <color name="tab_text_true">#1296db</color>
     <color name="tab_text_false">#515151</color>
+    <color name="photopicker_background">#181819</color>
 </resources>

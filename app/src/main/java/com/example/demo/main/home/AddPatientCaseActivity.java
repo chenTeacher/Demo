@@ -1,13 +1,27 @@
 package com.example.demo.main.home;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.example.demo.R;
+import com.foamtrace.photopicker.ImageCaptureManager;
+import com.foamtrace.photopicker.PhotoPickerActivity;
+import com.foamtrace.photopicker.SelectModel;
+import com.foamtrace.photopicker.intent.PhotoPickerIntent;
+import com.foamtrace.photopicker.intent.PhotoPreviewIntent;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -24,7 +38,12 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
     private Button add_case_patient_doctor;
     private Button add_case_patient_start;
     private Button add_case_patient_time;
-
+    private int columnWidth;
+    private ArrayList<String> imagePaths = null;
+    private GridAdapter gridAdapter;
+    private GridView gv;
+    private ImageCaptureManager captureManager; // 相机拍照处理类
+    private static final int REQUEST_CAMERA_CODE = 112;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +56,31 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
         add_case_patient_doctor = (Button) findViewById(R.id.add_case_patient_doctor);
         add_case_patient_start = (Button) findViewById(R.id.add_case_patient_state);
         add_case_patient_time = (Button) findViewById(R.id.add_case_patient_time);
+        gv = (GridView) findViewById(R.id.gv);
         close_button.setOnClickListener(this);
         add_case_patient_doctor.setOnClickListener(this);
         add_case_patient_start.setOnClickListener(this);
         add_case_patient_time.setOnClickListener(this);
+        setImage();
+    }
+    private void setImage(){
+        //得到GridView中每个ImageView宽高
+        int cols = getResources().getDisplayMetrics().widthPixels / getResources().getDisplayMetrics().densityDpi;
+        cols = cols < 3 ? 3 : cols;
+        gv.setNumColumns(cols);
+        int screenWidth = getResources().getDisplayMetrics().widthPixels;
+        int columnSpace = getResources().getDimensionPixelOffset(R.dimen.space_size);
+        columnWidth = (screenWidth - columnSpace * (cols-1)) / cols;
+        //GridView item点击事件（浏览照片）
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                PhotoPreviewIntent intent = new PhotoPreviewIntent(AddPatientCaseActivity.this);
+                intent.setCurrentItem(position);
+                intent.setPhotoPaths(imagePaths);
+                startActivityForResult(intent, 22);
+            }
+        });
     }
     private void closeActivty(){
         finish();
@@ -157,7 +197,93 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
             case R.id.add_case_patient_time:
                 add_case_patient_time();
                 break;
+            case R.id.add_case_patient_capture:
+                add_case_patient_capture();
+                break;
         }
 
+    }
+
+    private void add_case_patient_capture() {
+        PhotoPickerIntent intent1 = new PhotoPickerIntent(AddPatientCaseActivity.this);
+        intent1.setSelectModel(SelectModel.MULTI);
+        intent1.setShowCarema(true); // 是否显示拍照
+        intent1.setMaxTotal(9); // 最多选择照片数量，默认为9
+        intent1.setSelectedPaths(imagePaths); // 已选中的照片地址， 用于回显选中状态
+        startActivityForResult(intent1, REQUEST_CAMERA_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==RESULT_OK){
+            switch (requestCode){
+                // 选择照片
+                case REQUEST_CAMERA_CODE:
+                    loadAdpater(data.getStringArrayListExtra(PhotoPickerActivity.EXTRA_RESULT));
+                    break;
+
+
+            }
+        }
+    }
+    private void loadAdpater(ArrayList<String> paths){
+        if(imagePaths == null){
+            imagePaths = new ArrayList<>();
+        }
+        imagePaths.clear();
+        imagePaths.addAll(paths);
+        if(gridAdapter == null){
+            gridAdapter = new GridAdapter(imagePaths);
+            gv.setAdapter(gridAdapter);
+        }else {
+            gridAdapter.notifyDataSetChanged();
+        }
+    }
+    private class GridAdapter extends BaseAdapter {
+        private ArrayList<String> listUrls;
+
+        public GridAdapter(ArrayList<String> listUrls) {
+            this.listUrls = listUrls;
+        }
+
+        @Override
+        public int getCount() {
+            return listUrls.size();
+        }
+
+        @Override
+        public String getItem(int position) {
+            return listUrls.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView;
+            if(convertView == null){
+                convertView = getLayoutInflater().inflate(R.layout.item_image, null);
+                imageView = (ImageView) convertView.findViewById(R.id.add_case_patient_capture);
+                convertView.setTag(imageView);
+                // 重置ImageView宽高
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(columnWidth, columnWidth);
+                imageView.setLayoutParams(params);
+            }else {
+                imageView = (ImageView) convertView.getTag();
+            }
+            //框架里自带glide
+            Glide.with(AddPatientCaseActivity.this)
+                    .load(new File(getItem(position)))
+                    .placeholder(R.mipmap.default_error)
+                    .error(R.mipmap.default_error)
+                    .centerCrop()
+                    .crossFade()
+                    .into(imageView);
+            return convertView;
+        }
     }
 }

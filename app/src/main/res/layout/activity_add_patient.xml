@@ -152,7 +152,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/add_case_patient_capture"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_below="@+id/add_patient_local_value"
@@ -168,7 +168,7 @@
             android:layout_alignBaseline="@+id/textView"
             android:layout_alignBottom="@+id/textView"
             android:layout_marginStart="58dp"
-            android:layout_toEndOf="@+id/imageView"
+            android:layout_toEndOf="@+id/add_case_patient_capture"
             android:background="@drawable/button_style1"
             android:text="拍照"
             android:textColor="@color/result_text" />
@@ -178,7 +178,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/imageView"
+            android:layout_below="@+id/add_case_patient_capture"
             android:layout_marginTop="86dp"
             android:background="@drawable/button_style1"
             android:text="保存"
