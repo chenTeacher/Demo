@@ -154,7 +154,7 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="男"
+                    android:text="--"
                     android:textSize="16sp" />
 
                 <TextView
@@ -166,7 +166,6 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="湖北省"
                     android:textSize="16sp" />
 
                 <TextView
@@ -178,7 +177,6 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="武汉市"
                     android:textSize="16sp" />
 
                 <TextView
@@ -190,7 +188,6 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="18600000000"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -208,7 +205,6 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="糖料病-已复查"
                     android:textSize="16sp" />
 
                 <TextView
@@ -220,7 +216,6 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="3份诊疗记录"
                     android:textSize="16sp" />
 
                 <TextView
@@ -232,7 +227,6 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="2017/8/21首次面诊 刘医生"
                     android:textSize="16sp" />
 
                 <TextView
@@ -245,7 +239,6 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="5dp"
-                    android:text="最近记录：2017/10/23 李医生接诊"
                     android:textSize="16sp" />
             </RelativeLayout>
 
