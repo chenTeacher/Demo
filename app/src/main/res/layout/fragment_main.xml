@@ -89,7 +89,9 @@
                 android:layout_weight="3"
                 android:hint="demo"
                 android:textSize="18dp" />
+
             <ImageButton
+                android:id="@+id/main_scanBtn"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"

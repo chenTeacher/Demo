@@ -1,7 +1,11 @@
 package com.example.demo.main.home;
 
+import android.Manifest;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
@@ -14,15 +18,22 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.demo.R;
 import com.example.demo.main.module.Patient;
 import com.example.demo.main.module.Patient_Case_Collection;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.PermissionListener;
+import com.yzq.zxinglibrary.android.CaptureActivity;
+import com.yzq.zxinglibrary.bean.ZxingConfig;
+import com.yzq.zxinglibrary.common.Constant;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.app.Activity.RESULT_OK;
 
 
 public class MainFragment extends Fragment implements View.OnClickListener{
@@ -32,6 +43,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     private ImageView patient_add;//添加患者
     private ImageView intent_add_case;//添加病例
     private ImageView intent_see_patient;//查看编辑患者信息
+    private ImageView main_scanBtn;//扫一扫
+    private int REQUEST_CODE_SCAN = 111;
     /**患者姓名*/
     private TextView patient_name;
     /**患者性别*/
@@ -85,10 +98,11 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         patient_last = (TextView) mCacheView.findViewById(R.id.main_patient_last);
         province = (TextView) mCacheView.findViewById(R.id.main_patient_province);
         city = (TextView) mCacheView.findViewById(R.id.main_patient_city);
+        main_scanBtn = (ImageView) mCacheView.findViewById(R.id.main_scanBtn);
         patient_add.setOnClickListener(this);
         intent_add_case.setOnClickListener(this);
         intent_see_patient.setOnClickListener(this);
-
+        main_scanBtn.setOnClickListener(this);
     }
     private void setAdapter(){
         List<Patient> data = new ArrayList<Patient>();
@@ -122,16 +136,57 @@ public class MainFragment extends Fragment implements View.OnClickListener{
             case R.id.intent_see_patient:
                 intentSeePatientActivity();
                 break;
+            case R.id.main_scanBtn:
+                zxing();
+                break;
         }
     }
+    /*实现扫一扫功能*/
+    private void zxing(){
+        AndPermission.with(getContext())
+                .permission(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
+                .callback(new PermissionListener() {
+                    @Override
+                    public void onSucceed(int requestCode, @NonNull List<String> grantPermissions) {
+                        Intent intent = new Intent(getContext(), CaptureActivity.class);
+
+                                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
+                                * 也可以不传这个参数
+                                * 不传的话  默认都为默认不震动  其他都为true
+                                * */
+
+                        ZxingConfig config = new ZxingConfig();
+                        config.setPlayBeep(true);
+                        config.setShake(true);
+                        intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
+
+                        startActivityForResult(intent, REQUEST_CODE_SCAN);
+                    }
+
+                    @Override
+                    public void onFailed(int requestCode, @NonNull List<String> deniedPermissions) {
+
+                        Uri packageURI = Uri.parse("package:" + getActivity().getPackageName());
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                        startActivity(intent);
+
+                        Toast.makeText(getContext(), "没有权限无法扫描呦", Toast.LENGTH_LONG).show();
+                    }
+                }).start();
+    }
+    /*跳转到查看编辑诊疗记录*/
     private void intentSeePatientActivity(){
         Intent intent  = new Intent(getActivity(),SeePatientActivity.class);
         startActivity(intent);
     }
+    /*跳转到添加诊疗记录*/
     private void intentAddPatientCaseActivity(){
         Intent intent  = new Intent(getActivity(),AddPatientCaseActivity.class);
         startActivity(intent);
     }
+    /*跳转到添加患者*/
     private void intentAddPatient(){
         Intent intent  = new Intent(getActivity(),AddPatientActivity.class);
         startActivity(intent);
@@ -157,4 +212,15 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+                // 扫描二维码/条码回传
+        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
+            if (data != null) {
+                String content = data.getStringExtra(Constant.CODED_CONTENT);
+                Toast.makeText(getContext(),"扫描结果为：" + content,Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 }
