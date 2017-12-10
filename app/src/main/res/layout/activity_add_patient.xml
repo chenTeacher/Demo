@@ -152,7 +152,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/add_case_patient_capture"
+            android:id="@+id/add_case_patient_photo"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_below="@+id/add_patient_local_value"
@@ -162,13 +162,13 @@
             android:src="@drawable/main_person_image" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView"
             android:layout_alignBottom="@+id/textView"
             android:layout_marginStart="58dp"
-            android:layout_toEndOf="@+id/add_case_patient_capture"
+            android:layout_toEndOf="@+id/add_case_patient_photo"
             android:background="@drawable/button_style1"
             android:text="拍照"
             android:textColor="@color/result_text" />
@@ -178,7 +178,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/add_case_patient_capture"
+            android:layout_below="@+id/add_case_patient_photo"
             android:layout_marginTop="86dp"
             android:background="@drawable/button_style1"
             android:text="保存"
@@ -189,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/add_patient_phone"
-            android:layout_toEndOf="@+id/button2"
+            android:layout_toEndOf="@+id/_test"
             android:text="性别:"
             android:textSize="24sp"
             android:textStyle="bold" />

@@ -2,7 +2,10 @@ package com.example.demo.main.home;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,7 +19,9 @@ import android.widget.LinearLayout;
 import com.bumptech.glide.Glide;
 import com.example.demo.R;
 import com.foamtrace.photopicker.ImageCaptureManager;
+import com.foamtrace.photopicker.ImageConfig;
 import com.foamtrace.photopicker.PhotoPickerActivity;
+import com.foamtrace.photopicker.PhotoPreviewActivity;
 import com.foamtrace.photopicker.SelectModel;
 import com.foamtrace.photopicker.intent.PhotoPickerIntent;
 import com.foamtrace.photopicker.intent.PhotoPreviewIntent;
@@ -38,12 +43,14 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
     private Button add_case_patient_doctor;
     private Button add_case_patient_start;
     private Button add_case_patient_time;
+//    private ImageView add_case_patient_capture;
     private int columnWidth;
     private ArrayList<String> imagePaths = null;
     private GridAdapter gridAdapter;
     private GridView gv;
     private ImageCaptureManager captureManager; // 相机拍照处理类
     private static final int REQUEST_CAMERA_CODE = 112;
+    private static final int REQUEST_PREVIEW_CODE = 113;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +63,15 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
         add_case_patient_doctor = (Button) findViewById(R.id.add_case_patient_doctor);
         add_case_patient_start = (Button) findViewById(R.id.add_case_patient_state);
         add_case_patient_time = (Button) findViewById(R.id.add_case_patient_time);
+//        add_case_patient_capture = (ImageView) findViewById(R.id.add_case_patient_photo);
         gv = (GridView) findViewById(R.id.gv);
         close_button.setOnClickListener(this);
         add_case_patient_doctor.setOnClickListener(this);
         add_case_patient_start.setOnClickListener(this);
         add_case_patient_time.setOnClickListener(this);
+//        add_case_patient_capture.setOnClickListener(this);
         setImage();
+        loadAdpater(new ArrayList<String>());
     }
     private void setImage(){
         //得到GridView中每个ImageView宽高
@@ -75,10 +85,15 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PhotoPreviewIntent intent = new PhotoPreviewIntent(AddPatientCaseActivity.this);
-                intent.setCurrentItem(position);
-                intent.setPhotoPaths(imagePaths);
-                startActivityForResult(intent, 22);
+                if(position == imagePaths.size()){
+                    add_case_patient_capture();
+                }else{
+                    PhotoPreviewIntent intent = new PhotoPreviewIntent(AddPatientCaseActivity.this);
+                    intent.setCurrentItem(position);
+                    intent.setPhotoPaths(imagePaths);
+                    startActivityForResult(intent, REQUEST_PREVIEW_CODE);
+                }
+
             }
         });
     }
@@ -184,6 +199,7 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
     }
     @Override
     public void onClick(View v) {
+        Log.i("capture","add_case_patient_capture");
         switch (v.getId()){
             case R.id.close_btn:
                 closeActivty();
@@ -197,9 +213,9 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
             case R.id.add_case_patient_time:
                 add_case_patient_time();
                 break;
-            case R.id.add_case_patient_capture:
-                add_case_patient_capture();
-                break;
+//            case R.id.add_case_patient_photo:
+//                add_case_patient_capture();
+//                break;
         }
 
     }
@@ -208,7 +224,7 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
         PhotoPickerIntent intent1 = new PhotoPickerIntent(AddPatientCaseActivity.this);
         intent1.setSelectModel(SelectModel.MULTI);
         intent1.setShowCarema(true); // 是否显示拍照
-        intent1.setMaxTotal(9); // 最多选择照片数量，默认为9
+        intent1.setMaxTotal(4); // 最多选择照片数量，默认为9
         intent1.setSelectedPaths(imagePaths); // 已选中的照片地址， 用于回显选中状态
         startActivityForResult(intent1, REQUEST_CAMERA_CODE);
     }
@@ -222,7 +238,19 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
                 case REQUEST_CAMERA_CODE:
                     loadAdpater(data.getStringArrayListExtra(PhotoPickerActivity.EXTRA_RESULT));
                     break;
-
+                //浏览照片
+                case REQUEST_PREVIEW_CODE:
+                    loadAdpater(data.getStringArrayListExtra(PhotoPreviewActivity.EXTRA_RESULT));
+                    break;
+                // 调用相机拍照
+                case ImageCaptureManager.REQUEST_TAKE_PHOTO:
+                    if(captureManager.getCurrentPhotoPath() != null) {
+                        captureManager.galleryAddPic();
+                        ArrayList<String> paths = new ArrayList<>();
+                        paths.add(captureManager.getCurrentPhotoPath());
+                        loadAdpater(paths);
+                    }
+                    break;
 
             }
         }
@@ -249,12 +277,24 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
 
         @Override
         public int getCount() {
-            return listUrls.size();
+            if(listUrls.size() ==4){
+                return listUrls.size();
+            }
+            return listUrls.size()+1;
         }
 
         @Override
         public String getItem(int position) {
-            return listUrls.get(position);
+                       if(listUrls.size() ==4){
+                    return listUrls.get(position);
+                }else{
+                    if(position == (listUrls.size())){
+                        return null;
+                    }else{
+                        return listUrls.get(position);
+                    }
+
+            }
         }
 
         @Override
@@ -267,22 +307,29 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
             ImageView imageView;
             if(convertView == null){
                 convertView = getLayoutInflater().inflate(R.layout.item_image, null);
-                imageView = (ImageView) convertView.findViewById(R.id.add_case_patient_capture);
+                imageView = (ImageView) convertView.findViewById(R.id.add_case_patient_photo);
                 convertView.setTag(imageView);
-                // 重置ImageView宽高
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(columnWidth, columnWidth);
-                imageView.setLayoutParams(params);
             }else {
                 imageView = (ImageView) convertView.getTag();
             }
-            //框架里自带glide
-            Glide.with(AddPatientCaseActivity.this)
-                    .load(new File(getItem(position)))
-                    .placeholder(R.mipmap.default_error)
-                    .error(R.mipmap.default_error)
-                    .centerCrop()
-                    .crossFade()
-                    .into(imageView);
+
+                if(getItem(position)!=null){
+                    Glide.with(AddPatientCaseActivity.this)
+                            .load(new File(getItem(position)))
+                            .placeholder(R.mipmap.default_error)
+                            .error(R.mipmap.default_error)
+                            .centerCrop()
+                            .crossFade()
+                            .into(imageView);
+                }else{
+                    Glide.with(AddPatientCaseActivity.this)
+                            .load(R.drawable.add_image)
+                            .placeholder(R.mipmap.default_error)
+                            .error(R.mipmap.default_error)
+                            .centerCrop()
+                            .crossFade()
+                            .into(imageView);
+                }
             return convertView;
         }
     }

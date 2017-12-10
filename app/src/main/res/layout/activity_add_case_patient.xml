@@ -87,8 +87,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/add_case_patient_time"
-            android:layout_marginTop="18dp"
+            android:layout_alignTop="@+id/add_content"
+            android:layout_marginTop="12dp"
             android:text="记录:"
             android:textAlignment="textEnd"
             android:textSize="24sp"
@@ -98,9 +98,10 @@
             android:id="@+id/add_content"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/add_patient_card"
+            android:layout_below="@+id/add_case_patient_time"
+            android:layout_marginTop="17dp"
             android:layout_toEndOf="@+id/add_patient_card"
-            android:background="@drawable/bg_edittext"
+            android:background="@android:drawable/edit_text"
             android:enabled="true"
             android:gravity="top"
             android:inputType="textMultiLine"
@@ -113,38 +114,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/add_case_patient_capture"
+            android:layout_alignTop="@+id/gv"
             android:layout_marginTop="44dp"
             android:text="病例:"
             android:textAlignment="textEnd"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <GridView
-            android:id="@+id/gv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/add_case_patient_capture"
-            android:layout_toEndOf="@+id/textView"
-            android:horizontalSpacing="@dimen/space_size"
-            android:verticalSpacing="@dimen/space_size"></GridView>
-
-        <ImageView
-            android:id="@+id/add_case_patient_capture"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_below="@+id/add_content"
-            android:layout_marginTop="38dp"
-            android:layout_toEndOf="@+id/gv"
-            android:src="@drawable/add_image" />
-
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/add_case_patient_capture"
-            android:layout_marginTop="66dp"
+            android:layout_alignEnd="@+id/gv"
+            android:layout_below="@+id/gv"
+            android:layout_marginTop="22dp"
             android:background="@drawable/button_style1"
             android:text="添加"
             android:textColor="@color/result_text" />
@@ -198,5 +181,15 @@
             android:layout_toEndOf="@+id/textView2"
             android:background="@drawable/button_style2"
             android:text="请选择" />
+
+        <GridView
+            android:id="@+id/gv"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_alignStart="@+id/add_content"
+            android:layout_below="@+id/add_content"
+            android:layout_marginTop="21dp"
+            android:horizontalSpacing="@dimen/space_size"
+            android:verticalSpacing="@dimen/space_size" />
     </RelativeLayout>
 </LinearLayout>
