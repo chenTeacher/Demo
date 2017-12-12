@@ -15,9 +15,12 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.demo.R;
+import com.example.demo.main.module.Patient;
+import com.example.demo.utils.Code;
 import com.foamtrace.photopicker.ImageCaptureManager;
 import com.foamtrace.photopicker.ImageConfig;
 import com.foamtrace.photopicker.PhotoPickerActivity;
@@ -35,6 +38,7 @@ import cn.addapp.pickers.listeners.OnSingleWheelListener;
 import cn.addapp.pickers.picker.DatePicker;
 import cn.addapp.pickers.picker.SinglePicker;
 
+
 /**
  * 添加患者信息Activity
  */
@@ -43,19 +47,22 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
     private Button add_case_patient_doctor;
     private Button add_case_patient_start;
     private Button add_case_patient_time;
-//    private ImageView add_case_patient_capture;
+    private TextView add_patient_name_value;
     private int columnWidth;
     private ArrayList<String> imagePaths = null;
     private GridAdapter gridAdapter;
     private GridView gv;
     private ImageCaptureManager captureManager; // 相机拍照处理类
-    private static final int REQUEST_CAMERA_CODE = 112;
-    private static final int REQUEST_PREVIEW_CODE = 113;
+
+
+    private Patient patient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_case_patient);
+        Intent intent = getIntent();
+        patient = (Patient) intent.getSerializableExtra("patient");
         initView();
     }
     private void initView(){
@@ -63,13 +70,14 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
         add_case_patient_doctor = (Button) findViewById(R.id.add_case_patient_doctor);
         add_case_patient_start = (Button) findViewById(R.id.add_case_patient_state);
         add_case_patient_time = (Button) findViewById(R.id.add_case_patient_time);
-//        add_case_patient_capture = (ImageView) findViewById(R.id.add_case_patient_photo);
+        add_patient_name_value = (TextView) findViewById(R.id.add_patient_name_value);
         gv = (GridView) findViewById(R.id.gv);
+        add_patient_name_value.setText(patient.getPatient_name());
         close_button.setOnClickListener(this);
         add_case_patient_doctor.setOnClickListener(this);
         add_case_patient_start.setOnClickListener(this);
         add_case_patient_time.setOnClickListener(this);
-//        add_case_patient_capture.setOnClickListener(this);
+
         setImage();
         loadAdpater(new ArrayList<String>());
     }
@@ -91,7 +99,7 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
                     PhotoPreviewIntent intent = new PhotoPreviewIntent(AddPatientCaseActivity.this);
                     intent.setCurrentItem(position);
                     intent.setPhotoPaths(imagePaths);
-                    startActivityForResult(intent, REQUEST_PREVIEW_CODE);
+                    startActivityForResult(intent,Code.REQUEST_PREVIEW_CODE);
                 }
 
             }
@@ -226,7 +234,7 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
         intent1.setShowCarema(true); // 是否显示拍照
         intent1.setMaxTotal(4); // 最多选择照片数量，默认为9
         intent1.setSelectedPaths(imagePaths); // 已选中的照片地址， 用于回显选中状态
-        startActivityForResult(intent1, REQUEST_CAMERA_CODE);
+        startActivityForResult(intent1, Code.REQUEST_CAMERA_CODE);
     }
 
     @Override
@@ -235,11 +243,11 @@ public class AddPatientCaseActivity extends Activity implements View.OnClickList
         if (resultCode==RESULT_OK){
             switch (requestCode){
                 // 选择照片
-                case REQUEST_CAMERA_CODE:
+                case Code.REQUEST_CAMERA_CODE:
                     loadAdpater(data.getStringArrayListExtra(PhotoPickerActivity.EXTRA_RESULT));
                     break;
                 //浏览照片
-                case REQUEST_PREVIEW_CODE:
+                case Code.REQUEST_PREVIEW_CODE:
                     loadAdpater(data.getStringArrayListExtra(PhotoPreviewActivity.EXTRA_RESULT));
                     break;
                 // 调用相机拍照

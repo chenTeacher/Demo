@@ -1,12 +1,14 @@
 package com.example.demo.main.module;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 /**
  * Created by ChenTeacher on 2017/12/1.
  */
 
-public class Patient {
+public class Patient implements Serializable {
     /**患者姓名*/
     private String patient_name;
     /**患者年龄*/

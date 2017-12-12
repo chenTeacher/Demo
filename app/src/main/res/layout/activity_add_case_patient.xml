@@ -56,7 +56,6 @@
             android:layout_alignBaseline="@+id/add_patient_name"
             android:layout_alignBottom="@+id/add_patient_name"
             android:layout_toEndOf="@+id/add_patient_name"
-            android:text="王小明"
             android:textSize="24sp" />
 
         <TextView
@@ -101,7 +100,7 @@
             android:layout_below="@+id/add_case_patient_time"
             android:layout_marginTop="17dp"
             android:layout_toEndOf="@+id/add_patient_card"
-            android:background="@android:drawable/edit_text"
+            android:background="@drawable/bg_edittext"
             android:enabled="true"
             android:gravity="top"
             android:inputType="textMultiLine"

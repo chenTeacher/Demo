@@ -51,13 +51,16 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/add_patient_name_value"
+            android:id="@+id/see_patient_name_value"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_edittext"
             android:layout_alignBaseline="@+id/add_patient_name"
             android:layout_alignBottom="@+id/add_patient_name"
-            android:layout_toEndOf="@+id/add_patient_name" />
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/add_patient_name"
+            android:background="@drawable/bg_edittext"
+            android:singleLine="false"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/add_patient_phone"
@@ -72,15 +75,16 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/add_case_patient_time"
+            android:id="@+id/see_case_patient_phone"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/add_patient_phone"
-            android:layout_alignBottom="@+id/add_patient_phone"
-            android:layout_toEndOf="@+id/add_patient_phone"
+            android:layout_alignBaseline="@+id/textView5"
+            android:layout_alignBottom="@+id/textView5"
+            android:layout_alignStart="@+id/see_patient_name_value"
             android:background="@drawable/bg_edittext"
             android:maxLength="11"
-            android:textSize="24sp" />
+            android:singleLine="false"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/add_patient_card"
@@ -95,15 +99,17 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/add_patient_card_value"
+            android:id="@+id/see_patient_card_value"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/add_patient_card"
             android:layout_alignBottom="@+id/add_patient_card"
-            android:layout_toEndOf="@+id/add_patient_card"
+            android:layout_alignStart="@+id/see_case_patient_phone"
             android:background="@drawable/bg_edittext"
             android:maxLength="18"
-            android:textSize="24sp" />
+            android:scrollHorizontally="true"
+            android:singleLine="false"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/add_patient_local"
@@ -118,12 +124,12 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/add_patient_local_value"
+            android:id="@+id/see_patient_local_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/activity_see_patient_select_local"
             android:layout_below="@+id/activity_see_patient_select_local"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="23dp"
             android:background="@drawable/bg_edittext"
             android:textSize="24sp" />
 
@@ -133,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/add_patient_local"
             android:layout_alignBottom="@+id/add_patient_local"
-            android:layout_toEndOf="@+id/add_patient_local"
+            android:layout_alignStart="@+id/see_patient_card_value"
             android:background="@drawable/button_style1"
             android:text=" 选择"
             android:textColor="@color/result_text" />
@@ -143,7 +149,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/add_patient_local_value"
+            android:layout_below="@+id/see_patient_local_value"
             android:layout_marginTop="51dp"
             android:text="照片:"
             android:textAlignment="textEnd"
@@ -154,9 +160,9 @@
             android:id="@+id/add_case_patient_photo"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_below="@+id/add_patient_local_value"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="15dp"
+            android:layout_below="@+id/see_patient_local_value"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="17dp"
             android:layout_toEndOf="@+id/textView"
             android:src="@drawable/main_person_image" />
 
@@ -215,8 +221,8 @@
             android:id="@+id/activity_see_patient_select_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/add_patient_name_value"
-            android:layout_toEndOf="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/button_style2"
             android:text="请选择" />
 
@@ -224,8 +230,8 @@
             android:id="@+id/activity_see_patient_select_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/add_case_patient_time"
-            android:layout_toEndOf="@+id/textView5"
+            android:layout_alignBottom="@+id/textView5"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/button_style2"
             android:text="请选择" />
         <!--<EditText

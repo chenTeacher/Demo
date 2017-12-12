@@ -56,7 +56,6 @@
             android:layout_alignBaseline="@+id/add_patient_name"
             android:layout_alignBottom="@+id/add_patient_name"
             android:layout_toEndOf="@+id/add_patient_name"
-            android:text="王小明"
             android:textSize="24sp" />
 
         <TextView

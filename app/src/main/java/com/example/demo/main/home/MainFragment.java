@@ -45,6 +45,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     private ImageView intent_see_patient;//查看编辑患者信息
     private ImageView main_scanBtn;//扫一扫
     private int REQUEST_CODE_SCAN = 111;
+    private Patient patient;
     /**患者姓名*/
     private TextView patient_name;
     /**患者性别*/
@@ -120,8 +121,27 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         patient_case_collection_adapter = new Patient_Case_Collection_Adapter(getActivity(),data4);
         patientListView.setAdapter(patientAdapter);
         patient_Case_Collection_ListView.setAdapter(patient_case_collection_adapter);
-//        点击事件
+        //点击事件
         patientListView.setOnItemClickListener(new PatientAdapterOnItemClickListener());
+        //默认选择第一个item
+        setFirstItem(data);
+
+    }
+    //默认选择第一个item
+    private void setFirstItem( List<Patient> data) {
+        patient = (Patient) data.get(0);
+        patient_name.setText(patient.getPatient_name());
+        patient_sex.setText(patient.getPatient_sex());
+        patient_number.setText(patient.getPatient_number());
+        patient_jz_state.setText(patient.getPatient_jz_state());
+        patient_record.setText(patient.getPatient_record());
+        patient_first.setText(patient.getPatient_first_time()+" "+patient.getPatient_first_doctor());
+        patient_last.setText(patient.getPatient_last_doctor()+" "+patient.getPatient_last_doctor());
+        province.setText(patient.getProvince());
+        city.setText(patient.getCity());
+        data4.clear();
+        data4.addAll(patient.getPatient_case_collection());
+        patient_case_collection_adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -179,11 +199,13 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     /*跳转到查看编辑诊疗记录*/
     private void intentSeePatientActivity(){
         Intent intent  = new Intent(getActivity(),SeePatientActivity.class);
+        intent.putExtra("patient",patient);
         startActivity(intent);
     }
     /*跳转到添加诊疗记录*/
     private void intentAddPatientCaseActivity(){
         Intent intent  = new Intent(getActivity(),AddPatientCaseActivity.class);
+        intent.putExtra("patient",patient);
         startActivity(intent);
     }
     /*跳转到添加患者*/
@@ -196,7 +218,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Patient patient = (Patient) parent.getItemAtPosition(position);
+            patient = (Patient) parent.getItemAtPosition(position);
             patient_name.setText(patient.getPatient_name());
             patient_sex.setText(patient.getPatient_sex());
             patient_number.setText(patient.getPatient_number());
