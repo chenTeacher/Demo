@@ -59,8 +59,11 @@
             android:layout_marginStart="11dp"
             android:layout_toEndOf="@+id/add_patient_name"
             android:background="@drawable/bg_edittext"
-            android:singleLine="false"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            />
 
         <TextView
             android:id="@+id/add_patient_phone"
@@ -83,8 +86,11 @@
             android:layout_alignStart="@+id/see_patient_name_value"
             android:background="@drawable/bg_edittext"
             android:maxLength="11"
-            android:singleLine="false"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            />
 
         <TextView
             android:id="@+id/add_patient_card"
@@ -108,7 +114,9 @@
             android:background="@drawable/bg_edittext"
             android:maxLength="18"
             android:scrollHorizontally="true"
-            android:singleLine="false"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
             android:textSize="18sp" />
 
         <TextView
@@ -131,6 +139,9 @@
             android:layout_below="@+id/activity_see_patient_select_local"
             android:layout_marginTop="23dp"
             android:background="@drawable/bg_edittext"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
             android:textSize="24sp" />
 
         <Button
@@ -234,15 +245,5 @@
             android:layout_alignParentEnd="true"
             android:background="@drawable/button_style2"
             android:text="请选择" />
-        <!--<EditText
-             android:id="@+id/editText21"
-             android:layout_width="300dp"
-             android:layout_height="wrap_content"
-             android:layout_alignParentEnd="true"
-             android:layout_alignParentTop="true"
-             android:layout_marginEnd="131dp"
-             android:layout_marginTop="19dp"
-             android:layout_weight="3"
-             android:inputType="number" />-->
     </RelativeLayout>
 </LinearLayout>

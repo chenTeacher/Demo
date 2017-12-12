@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 
 public class Patient_Case_Collection implements Serializable {
+    private  String name;
     private  String number;
     private  String time;
     private  String doctor;
@@ -14,11 +15,16 @@ public class Patient_Case_Collection implements Serializable {
 
     public Patient_Case_Collection(){}
 
-    public Patient_Case_Collection(String number,String time,String doctor,String content){
+    public Patient_Case_Collection(String name,String number,String time,String doctor,String content){
+        this.name = name;
         this.content = content;
         this.doctor = doctor;
         this.number = number;
         this.time = time;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setContent(String content) {
@@ -39,6 +45,10 @@ public class Patient_Case_Collection implements Serializable {
 
     public String getContent() {
         return content;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getDoctor() {

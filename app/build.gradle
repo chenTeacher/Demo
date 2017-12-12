@@ -36,4 +36,7 @@ dependencies {
     compile 'com.github.yuzhiqiang1993:zxing:2.0.0'
     implementation 'com.yanzhenjie:permission:1.1.0'
     compile 'com.foamtrace:photopicker:1.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
+
 }

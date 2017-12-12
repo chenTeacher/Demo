@@ -41,6 +41,7 @@ public class Patient_Case_Collection_Adapter extends BaseAdapter implements Adap
     public Patient_Case_Collection_Adapter(Context context, List<Patient_Case_Collection> data){
         this.mContext = context;
         this.data = data;
+
     }
     @Override
     public int getCount() {

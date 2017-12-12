@@ -1,13 +1,18 @@
 package com.example.demo.main.home;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.demo.R;
+import com.example.demo.main.module.Patient;
+import com.example.demo.main.module.Patient_Case_Collection;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -22,13 +27,18 @@ import cn.addapp.pickers.picker.SinglePicker;
 
 public class SeePatientCaseActivity extends Activity implements View.OnClickListener{
     private ImageButton close_button;
+    private TextView see_patient_case_name_value;
     private Button see_case_patient_doctor;
     private Button see_case_patient_start;
     private Button see_case_patient_time;
+    private Patient_Case_Collection patient_case_collection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_case_patient);
+        Intent intent = getIntent();
+        patient_case_collection = (Patient_Case_Collection) intent.getSerializableExtra("patient_case_collection");
         initView();
     }
     private void initView(){
@@ -36,6 +46,8 @@ public class SeePatientCaseActivity extends Activity implements View.OnClickList
         see_case_patient_doctor = (Button) findViewById(R.id.see_case_patient_doctor);
         see_case_patient_start = (Button) findViewById(R.id.see_case_patient_state);
         see_case_patient_time = (Button) findViewById(R.id.add_case_patient_time);
+        see_patient_case_name_value = (TextView) findViewById(R.id.see_patient_case_name_value);
+        see_patient_case_name_value.setText(patient_case_collection.getName());
         close_button.setOnClickListener(this);
         see_case_patient_doctor.setOnClickListener(this);
         see_case_patient_start.setOnClickListener(this);

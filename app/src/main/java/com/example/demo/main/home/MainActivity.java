@@ -76,6 +76,11 @@ public class MainActivity extends FragmentActivity  implements TabHost.OnTabChan
 
     @Override
     public void onTabChanged(String tabId) {
+        Log.i("onTabChanged","tabId :"+tabId);
+        //根据ID   来判断发出的请求
+        //请求的时候 先加载统一的Fragment
+        //判断请求是不是成功返回数据
+
     }
 
 }

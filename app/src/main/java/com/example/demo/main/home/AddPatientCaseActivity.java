@@ -38,6 +38,7 @@ import cn.addapp.pickers.listeners.OnSingleWheelListener;
 import cn.addapp.pickers.picker.DatePicker;
 import cn.addapp.pickers.picker.SinglePicker;
 
+import  com.example.demo.utils.Code;
 
 /**
  * 添加患者信息Activity

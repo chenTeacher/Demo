@@ -57,6 +57,9 @@
             android:layout_alignBottom="@+id/add_patient_name"
             android:layout_toEndOf="@+id/add_patient_name"
             android:background="@drawable/bg_edittext"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
             android:textSize="24sp" />
 
         <TextView
@@ -80,7 +83,11 @@
             android:layout_toEndOf="@+id/add_patient_phone"
             android:background="@drawable/bg_edittext"
             android:maxLength="11"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            />
 
         <TextView
             android:id="@+id/add_patient_card"
@@ -102,6 +109,9 @@
             android:layout_alignBottom="@+id/add_patient_card"
             android:layout_toEndOf="@+id/add_patient_card"
             android:background="@drawable/bg_edittext"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
             android:maxLength="18"
             android:textSize="24sp" />
 
@@ -120,7 +130,9 @@
         <EditText
             android:id="@+id/add_patient_local_value"
             android:layout_width="match_parent"
-
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/activity_see_patient_select_local"
             android:layout_below="@+id/activity_see_patient_select_local"
@@ -152,7 +164,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/add_case_patient_photo"
+            android:id="@+id/add_patient_head_portrait"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_below="@+id/add_patient_local_value"
@@ -162,13 +174,13 @@
             android:src="@drawable/main_person_image" />
 
         <Button
-            android:id="@+id/_test"
+            android:id="@+id/activity_add_patient_camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/textView"
             android:layout_alignBottom="@+id/textView"
             android:layout_marginStart="58dp"
-            android:layout_toEndOf="@+id/add_case_patient_photo"
+            android:layout_toEndOf="@+id/add_patient_head_portrait"
             android:background="@drawable/button_style1"
             android:text="拍照"
             android:textColor="@color/result_text" />
@@ -178,7 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/add_case_patient_photo"
+            android:layout_below="@+id/add_patient_head_portrait"
             android:layout_marginTop="86dp"
             android:background="@drawable/button_style1"
             android:text="保存"
@@ -188,8 +200,8 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/add_patient_phone"
-            android:layout_toEndOf="@+id/_test"
+            android:layout_above="@+id/activity_add_patient_select_age"
+            android:layout_toEndOf="@+id/activity_add_patient_camera"
             android:text="性别:"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -229,15 +241,6 @@
             android:layout_toEndOf="@+id/textView5"
             android:background="@drawable/button_style2"
             android:text="请选择" />
-        <!--<EditText
-             android:id="@+id/editText21"
-             android:layout_width="300dp"
-             android:layout_height="wrap_content"
-             android:layout_alignParentEnd="true"
-             android:layout_alignParentTop="true"
-             android:layout_marginEnd="131dp"
-             android:layout_marginTop="19dp"
-             android:layout_weight="3"
-             android:inputType="number" />-->
+
     </RelativeLayout>
 </LinearLayout>

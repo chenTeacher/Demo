@@ -50,7 +50,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/add_patient_name_value"
+            android:id="@+id/see_patient_case_name_value"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/add_patient_name"
@@ -102,9 +102,12 @@
             android:enabled="true"
             android:gravity="top"
             android:inputType="textMultiLine"
-            android:maxLines="10"
+            android:maxLines="8"
             android:minLines="8"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
 
         <TextView
             android:id="@+id/textView"
@@ -160,9 +163,9 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/add_patient_name_value"
-            android:layout_alignBottom="@+id/add_patient_name_value"
-            android:layout_toEndOf="@+id/add_patient_name_value"
+            android:layout_alignBaseline="@+id/see_patient_case_name_value"
+            android:layout_alignBottom="@+id/see_patient_case_name_value"
+            android:layout_toEndOf="@+id/see_patient_case_name_value"
             android:text="当前状态:"
             android:textAlignment="textEnd"
             android:textSize="24sp"
