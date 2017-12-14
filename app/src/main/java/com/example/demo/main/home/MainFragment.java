@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import android.widget.AdapterView;
 
 
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ import android.widget.Toast;
 import com.example.demo.R;
 import com.example.demo.main.module.Patient;
 import com.example.demo.main.module.Patient_Case_Collection;
+import com.example.demo.ui.ProgressFrameLayout;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.PermissionListener;
 import com.yzq.zxinglibrary.android.CaptureActivity;
@@ -45,6 +48,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     private ImageView intent_add_case;//添加病例
     private ImageView intent_see_patient;//查看编辑患者信息
     private ImageView main_scanBtn;//扫一扫
+
+    private ProgressFrameLayout frameLayout;
     private int REQUEST_CODE_SCAN = 111;
     private Patient patient;
     /**患者姓名*/
@@ -95,10 +100,33 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onStart() {
         super.onStart();
+        frameLayout.setVisibility(View.VISIBLE);
+        frameLayout.showRefresh();
+        new Handler().postDelayed(new Runnable(){
+            public void run() {
+                frameLayout.stopRefresh();
+                frameLayout.setVisibility(View.GONE);
+            }
+        }, 2000);
+        frameLayout.setAgainRequestListener(new ProgressFrameLayout.AgainRequestListener() {
+            @Override
+            public void againRequest() {
+                frameLayout.showRefresh();
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+                        //execute the task
+                        frameLayout.stopRefresh();
+                        frameLayout.setVisibility(View.GONE);
+                    }
+                }, 2000);
 
+            }
+        });
+        Log.e("MainFragment","onStart");
     }
-
     private void initView(View mCacheView){
+        frameLayout= (ProgressFrameLayout) mCacheView.findViewById(R.id.frame_progress);
+        frameLayout.setLoadFail();
         patient_add = (ImageView) mCacheView.findViewById(R.id.main_patient_add);
         intent_add_case = (ImageView) mCacheView.findViewById(R.id.intent_add_case);
         intent_see_patient = (ImageView) mCacheView.findViewById(R.id.intent_see_patient);

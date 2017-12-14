@@ -6,269 +6,274 @@
     android:background="#ffffff"
     android:orientation="horizontal"
     tools:context="com.example.demo.main.home.MainFragment">
-
-    <LinearLayout
-        android:layout_width="0dp"
+    <com.example.demo.ui.ProgressFrameLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="患者管理"
-            android:textAllCaps="true"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
+        android:id="@+id/frame_progress"
+        >
+    </com.example.demo.ui.ProgressFrameLayout>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-            <RelativeLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:gravity="center"
-                >
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/main_patient_add"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/main_add" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="患者管理"
+                android:textAllCaps="true"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:text="添加"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:gravity="center"
-                >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    >
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/main_group" />
+                    <ImageView
+                        android:id="@+id/main_patient_add"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/main_add" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:text="分组"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="添加"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    >
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/main_group" />
 
-            <EditText
-                android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="分组"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_weight="3"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:singleLine="true"
-                android:hint="demo"
-                android:textSize="18dp" />
+                android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/main_scanBtn"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@drawable/zximg" />
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:singleLine="true"
+                    android:hint="demo"
+                    android:textSize="18dp" />
+
+                <ImageButton
+                    android:id="@+id/main_scanBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/zximg" />
+            </LinearLayout>
+            <ListView
+                android:id="@+id/main_patient_case_collection_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            </ListView>
         </LinearLayout>
-        <ListView
-            android:id="@+id/main_patient_case_collection_list_view"
-            android:layout_width="match_parent"
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            >
-        </ListView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp">
-
-            <ImageView
-                android:id="@+id/main_patient_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/main_person_image" />
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <RelativeLayout
-                android:id="@+id/RelativeLayout1"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/main_patient_image">
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
 
-                <TextView
-                    android:id="@+id/main_patient_name"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-
+                <ImageView
+                    android:id="@+id/main_patient_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:text="@string/暂无数据"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/main_person_image" />
 
-                <TextView
-                    android:id="@+id/main_patient_sex"
+                <RelativeLayout
+                    android:id="@+id/RelativeLayout1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/main_patient_name"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:text="--"
-                    android:textSize="16sp" />
+                    android:layout_toRightOf="@+id/main_patient_image">
 
-                <TextView
-                    android:id="@+id/main_patient_province"
+                    <TextView
+                        android:id="@+id/main_patient_name"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/暂无数据"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/main_patient_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/main_patient_name"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="--"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/main_patient_province"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/main_patient_sex"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/main_patient_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/main_patient_province"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/main_patient_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/main_patient_sex"
+                        android:layout_toEndOf="@+id/main_patient_name"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/RelativeLayout2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/main_patient_image">
+
+                    <TextView
+                        android:id="@+id/main_patient_jz_state"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/main_patient_record"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/main_patient_jz_state"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/main_patient_first"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/main_patient_jz_state"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/main_patient_last"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/main_patient_record"
+                        android:layout_alignBottom="@+id/main_patient_record"
+                        android:layout_toEndOf="@+id/main_patient_record"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <ImageButton
+                    android:id="@+id/intent_add_case"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/main_patient_sex"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/main_patient_city"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_query_case" />
+                <!--查看编辑患者信息-->
+                <ImageButton
+                    android:id="@+id/intent_see_patient"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/main_patient_province"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/main_patient_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/main_patient_sex"
-                    android:layout_toEndOf="@+id/main_patient_name"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:textSize="16sp" />
+                    android:layout_toStartOf="@+id/intent_add_case"
+                    android:background="@drawable/main_add_case" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/RelativeLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_toEndOf="@+id/main_patient_image">
-
-                <TextView
-                    android:id="@+id/main_patient_jz_state"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/main_patient_record"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/main_patient_jz_state"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/main_patient_first"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/main_patient_jz_state"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/main_patient_last"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/main_patient_record"
-                    android:layout_alignBottom="@+id/main_patient_record"
-                    android:layout_toEndOf="@+id/main_patient_record"
-                    android:paddingBottom="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
-                    android:textSize="16sp" />
-            </RelativeLayout>
-
-            <ImageButton
-                android:id="@+id/intent_add_case"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/main_query_case" />
-            <!--查看编辑患者信息-->
-            <ImageButton
-                android:id="@+id/intent_see_patient"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_toStartOf="@+id/intent_add_case"
-                android:background="@drawable/main_add_case" />
-        </RelativeLayout>
-
-        <ListView
-            android:id="@+id/main_patient_case_collection_info_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></ListView>
-    </LinearLayout>
+            <ListView
+                android:id="@+id/main_patient_case_collection_info_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
 
 
 </LinearLayout>

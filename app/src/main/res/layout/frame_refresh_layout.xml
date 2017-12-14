@@ -1,0 +1,33 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.example.demo.ui.ProgressView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_frame"
+        android:layout_gravity="center">
+    </com.example.demo.ui.ProgressView>
+
+    <TextView
+        android:text="暂无数据"
+        android:padding="30dp"
+        android:id="@+id/tv_no_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <TextView
+        android:text="加载失败"
+        android:padding="30dp"
+        android:id="@+id/tv_load_fail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+
+
+</FrameLayout>
